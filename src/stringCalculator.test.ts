@@ -13,5 +13,9 @@ test("Test case for comma separated string", () => {
 });
 
 test("Test case for \\n and commas", () => {
-    expect(sum("1\n2,3")).toBe(6);
-  });
+  expect(sum("1\n2,3")).toBe(6);
+});
+
+test("Test case for custom delimiter ;", () => {
+  expect(sum("//;\n1;2")).toBe(3);
+});
