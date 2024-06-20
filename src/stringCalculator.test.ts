@@ -19,3 +19,7 @@ test("Test case for \\n and commas", () => {
 test("Test case for custom delimiter ;", () => {
   expect(sum("//;\n1;2")).toBe(3);
 });
+
+test("Test case for negative numbers", () => {
+    expect(() => sum("1,-2,3,-4")).toThrow("negative numbers not allowed -2,-4");
+  });

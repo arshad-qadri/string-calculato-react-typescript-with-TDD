@@ -16,10 +16,14 @@ const sum = (text: string): number => {
   }
 
   const numbersArray = numbersString.split(delimiter);
+  const negativeNumbers: number[] = [];
   const result: number = numbersArray.reduce(
     (accumulator: number, currentValue: string) => {
       const num = parseInt(currentValue.trim(), 10);
       if (isNaN(num)) {
+        return accumulator;
+      } else if (num < 0) {
+        negativeNumbers.push(num);
         return accumulator;
       } else {
         return accumulator + num;
@@ -27,6 +31,11 @@ const sum = (text: string): number => {
     },
     0
   );
+  if (negativeNumbers.length > 0) {
+    throw new Error(
+      `negative numbers not allowed ${negativeNumbers.join(",")}`
+    );
+  }
   return result;
 };
 
