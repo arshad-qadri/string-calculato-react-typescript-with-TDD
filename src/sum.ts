@@ -4,6 +4,11 @@ const sum = (text: string): number => {
   }
   let delimiter = ",";
   let numbersString = text;
+
+  if (numbersString.includes("\n")) {
+    numbersString = numbersString.replace(/\n/g, delimiter);
+  }
+  
   const numbersArray = numbersString.split(delimiter);
   const result: number = numbersArray.reduce(
     (accumulator: number, currentValue: string) => {
